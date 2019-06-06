@@ -1,0 +1,37 @@
+article.article-box {
+    display: flex;
+    margin: 3rem 0;
+
+    .img {
+        flex: 0 0 200px;
+        height: 150px;
+        background-color: #aaaaaa;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .content {
+        flex: 1 1 auto;
+        margin-left: 3rem;
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+
+            .title {
+                font-size: 1.8rem;
+            }
+    
+            .date {
+                min-width: 200px;
+                text-align: right;
+            }
+        }
+
+        .preamble {
+            width: 100%;
+        }
+    }
+}

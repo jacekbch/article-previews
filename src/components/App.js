@@ -1,14 +1,15 @@
 import React from 'react';
 import { Container } from 'reactstrap';
 import Header from './Header';
+import ArticlesList from './ArticlesList';
 
-export default class App extends React.Component {
-    render() {
-        return (
-            <div>
-                <Header />
-                <Container></Container>
-            </div>
-        );
-    }
-}
+const App = () => (
+    <div>
+        <Header />
+        <Container>
+            <ArticlesList />
+        </Container>
+    </div>
+);
+
+export default App;
