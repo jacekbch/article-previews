@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { SERVER_URL, MONTHS_NAMES_NO, CATEGORY_DATASOURCE_MAP } from './../constants';
 import { Label, Input } from 'reactstrap';
 import Article from './Article';
+import './../scss/ArticlesList.scss';
 
 export default class ArticlesList extends React.Component {
     constructor(props) {
@@ -75,15 +76,9 @@ export default class ArticlesList extends React.Component {
         });
 
         return (
-            <div>
-                <div>
-                    <a href="#" onClick={event => this.toggleSortByDate(event)}>
-                        Sort by date
-                    </a>
-                    { this.state.sortByDate === 'asc' ? <span>&uarr;</span> : <span>&darr;</span> }
-                </div>
-                <div>
-                    Data sources:
+            <div className="articles-list">
+                <div className="data-sources">
+                    <h6>Data sources:</h6>
                     <Label check>
                         <Input
                             type="checkbox"
@@ -101,18 +96,27 @@ export default class ArticlesList extends React.Component {
                         Sports
                     </Label>
                 </div>
-                {articles.map(article =>
-                    <Article
-                        key={article.id}
-                        image={article.image}
-                        title={article.title}
-                        preamble={article.preamble}
-                        date={article.date}
-                    />
-                )}
-                {articles.length === 0 && <div className="no-articles">No articles to display.</div>}
-                {this.state.loading && <div className="loading">Loading...</div>}
-                {this.state.error && <div className="error">Server error. Please try again.</div>}
+                <div className="sort">
+                    <a href="#" onClick={event => this.toggleSortByDate(event)}>
+                        Sort by date
+                    </a>
+                    { this.state.sortByDate === 'asc' ? <span>&uarr;</span> : <span>&darr;</span> }
+                </div>
+                <div className="articles">
+                    {articles.map(article =>
+                        <Article
+                            key={article.id}
+                            image={article.image}
+                            title={article.title}
+                            preamble={article.preamble}
+                            date={article.date}
+                        />
+                    )}
+                    {articles.length === 0 && !this.state.loading && !this.state.error &&
+                        <div className="no-articles">No articles to display.</div>}
+                    {this.state.loading && <div className="loading">Loading...</div>}
+                    {this.state.error && <div className="error">Server error. Please try again.</div>}
+                </div>
             </div>
         );
     }

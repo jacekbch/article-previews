@@ -2,6 +2,10 @@ article.article-box {
     display: flex;
     margin: 3rem 0;
 
+    &:first-child, &:last-child {
+        margin: 0;
+    }
+
     .img {
         flex: 0 0 200px;
         height: 150px;
