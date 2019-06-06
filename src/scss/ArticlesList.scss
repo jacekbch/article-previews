@@ -20,16 +20,17 @@
         label {
             margin-right: 1rem;
             padding-left: 1.25rem;
+            cursor: pointer;
+
+            @include media-breakpoint-up(md) {
+                display: block;
+            }
         }
 
         @include media-breakpoint-up(md) {
             grid-column: 1;
             grid-row: 2;
             margin-top: 3rem;
-
-            label {
-                display: block;
-            }
         }
     }
 
@@ -53,5 +54,14 @@
         grid-column: 2 / 4;
         grid-row: 2;
         margin-top: 3rem;
+
+        .no-articles, .loading, .error {
+            text-align: center;
+        }
+
+        .error {
+            color: $danger;
+            font-weight: $font-weight-bold;
+        }
     }
 }

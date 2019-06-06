@@ -1,3 +1,5 @@
+@import "variables";
+
 article.article-box {
     display: flex;
     margin: 3rem 0;
@@ -7,35 +9,59 @@ article.article-box {
     }
 
     .img {
-        flex: 0 0 200px;
-        height: 150px;
+        flex: 0 0;
+        flex-basis: 133px;
+        height: 100px;
         background-color: #aaaaaa;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+
+        @include media-breakpoint-up(lg) {
+            flex-basis: 200px;
+            height: 150px;
+        }
     }
 
     .content {
-        flex: 1 1 auto;
-        margin-left: 3rem;
+        flex: 2;
+        padding-left: 3rem;
 
         .header {
-            display: flex;
-            align-items: center;
+            display: block;
+            justify-content: space-between;
             margin-bottom: 1rem;
 
+            @include media-breakpoint-up(lg) {
+                display: flex;
+            }
+
             .title {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
+
+                @include media-breakpoint-up(lg) {
+                    padding-right: 2rem;
+                    font-size: 1.8rem;
+                }
             }
     
             .date {
-                min-width: 200px;
-                text-align: right;
+                margin-top: 0.5rem;
+                white-space: nowrap;
+
+                @include media-breakpoint-up(lg) {
+                    text-align: right;
+                }
             }
         }
 
         .preamble {
+            display: none;
             width: 100%;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
         }
     }
 }
