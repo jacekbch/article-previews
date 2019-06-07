@@ -71,7 +71,7 @@ export default class ArticlesList extends React.Component {
 
         articles = articles.filter(a => this.state.dataSources[CATEGORY_DATASOURCE_MAP[a.category]]);
         articles = articles.sort((a, b) => {
-            const revert = (this.state.sortByDate === 'asc' ? 1 : -1);
+            const revert = this.state.sortByDate === 'asc' ? 1 : -1;
             return (this.getDateTimestamp(a.date) - this.getDateTimestamp(b.date)) * revert;
         });
 

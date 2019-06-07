@@ -1,7 +1,7 @@
 {
-  "name": "frontend-assignment",
+  "name": "article-previews",
   "version": "1.0.0",
-  "description": "frontend assignment task js",
+  "description": "listing article previews",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
